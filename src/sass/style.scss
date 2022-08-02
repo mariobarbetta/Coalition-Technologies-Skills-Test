@@ -1,0 +1,423 @@
+@forward "reset";
+
+html {
+  scroll-padding-top: 70px; /* height of sticky header */
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  font-family: "Oswald", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+// layout
+section {
+  overflow: hidden;
+}
+
+.title,
+.history {
+  height: 100vh;
+  position: relative;
+}
+
+.climb {
+  height: 100vh;
+}
+
+.hero-title,
+.hero-history {
+  position: relative;
+
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+.title {
+  &__nav {
+    position: absolute;
+    top: 0;
+
+    display: flex;
+
+    width: 70%;
+    height: 70px;
+    margin-left: 15%;
+
+    color: white;
+
+    justify-content: space-between;
+    align-items: center;
+
+    li {
+      font-family: Lato, sans-serif;
+      font-weight: bold;
+
+      margin-left: 3rem;
+    }
+  }
+}
+
+.history {
+  &__header {
+    font-size: 5rem;
+
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+
+    width: 70%;
+    margin-left: -34%;
+
+    color: rgba(65, 79, 107, 0.5);
+
+    &__text {
+      font-size: 1.4rem;
+
+      position: relative;
+      right: 37px;
+      bottom: 17px;
+
+      color: rgb(65, 79, 107);
+    }
+
+    &__description {
+      font-family: "Lato", sans-serif;
+      font-size: 1rem;
+
+      margin-top: 0.3rem;
+      padding-left: 2rem;
+
+      color: black;
+    }
+  }
+}
+
+.hero-climb1,
+.hero-climb2 {
+  position: relative;
+
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+// Image Carousel
+.carousel {
+  position: absolute;
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 70% 1fr;
+
+  width: 100%;
+  height: 185px;
+
+  background-color: rgba(65, 79, 107, 0.5);
+
+  &__track-container {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 925px;
+    height: 135px;
+    margin: auto;
+    padding-top: 15px;
+  }
+
+  &__button {
+    font-size: 1.5rem;
+
+    position: relative;
+    top: 5%;
+
+    cursor: pointer;
+
+    color: white;
+    border: 0;
+    background: transparent;
+
+    &--left {
+      justify-self: end;
+    }
+
+    &--right {
+      justify-self: start;
+    }
+  }
+
+  &__track {
+    position: absolute;
+
+    display: flex;
+
+    width: 100%;
+
+    transition: transform 250ms ease-in;
+
+    justify-content: flex-start;
+  }
+
+  &__slide {
+    width: 220px;
+    height: 135px;
+    margin: 0 5px;
+  }
+
+  &__nav {
+    grid-column-start: 2;
+    justify-self: center;
+  }
+
+  &__indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+
+    cursor: pointer;
+
+    border: 0;
+    border-radius: 50%;
+    background: rgba(254, 254, 254, 0.5);
+
+    &.current-slide {
+      background: white;
+    }
+  }
+}
+
+.is-hidden {
+  visibility: hidden;
+}
+
+.hero-title {
+  background-image: url("../assets/title.png");
+}
+
+.hero-history {
+  background-image: url("../assets/History.png");
+}
+
+// Sticky Header
+.sticky-header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+
+  height: 70px;
+
+  background-color: white;
+
+  &__container {
+    display: flex;
+
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    span {
+      display: block;
+      color: rgb(65, 79, 107);
+    }
+
+    &__text {
+      margin-left: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  li {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+
+    margin-left: 3rem;
+
+    a {
+      color: #414f6b;
+      height: 100%;
+    }
+  }
+}
+
+// Climb/Team Section
+.climb {
+  &__header {
+    font-size: 5rem;
+
+    display: flex;
+
+    width: 70%;
+    height: 100px;
+    margin: 0 auto;
+
+    color: #b0b4be;
+    background-color: white;
+
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+
+    position: relative;
+    top: 8px;
+    right: 16px;
+
+    color: rgb(65, 79, 107);
+  }
+
+  &__description {
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+
+    display: inline;
+
+    padding-left: 2rem;
+
+    color: black;
+  }
+
+  &__schedule {
+    position: absolute;
+    top: 6rem;
+    left: 18%;
+
+    width: 350px;
+    height: 225px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+
+    &-text2 {
+      display: none;
+    }
+    h3 {
+      font-size: 2rem;
+
+      margin: 1.2rem 0 0 2rem;
+
+      color: rgb(65, 79, 107);
+    }
+
+    table {
+      font-family: "Lato", sans-serif;
+
+      width: 80%;
+      margin: 0.5rem auto;
+
+      td {
+        padding: 4px;
+      }
+    }
+
+    &--column1 {
+      width: 50%;
+    }
+  }
+
+  &__tab-nav {
+    display: flex;
+    overflow: hidden;
+
+    height: 40px;
+    padding-left: 15%;
+
+    color: #b0b4be;
+    background-color: rgb(65, 79, 107);
+
+    align-items: center;
+
+    a {
+      padding: 20px 10px 0 10px;
+      height: 100%;
+    }
+
+    a:hover {
+      background-color: #b0b4be;
+      color: rgb(65, 79, 107);
+    }
+
+    li {
+      font-size: 1.3rem;
+      margin-right: 10px;
+    }
+  }
+}
+
+.hero-climb1 {
+  background-image: url("../assets/mountain1.png");
+}
+
+.hero-climb2 {
+  background-image: url("../assets/mountain2.png");
+}
+
+.climb__tab-nav--active {
+  background-color: #b0b4be;
+  color: rgb(65, 79, 107);
+}
+
+footer {
+  background-color: rgb(65, 79, 107);
+  height: 65px;
+  color: rgba(255, 255, 255, 0.2);
+}
+.footer {
+  &__container {
+    display: flex;
+
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    span {
+      display: block;
+    }
+
+    &__text {
+      margin-left: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__copyright {
+    font-family: "Lato", sans-serif;
+  }
+}
+
+//media queries
+
+@media screen and (min-width: 1000px) and (max-width: 1300px) {
+  .carousel__track-container {
+    width: 690px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 999px) {
+  .carousel__track-container {
+    width: 460px;
+  }
+}
